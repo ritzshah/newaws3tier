@@ -1,0 +1,10 @@
+---
+- name: allocating a new public IP without associating
+  ec2_eip:
+    state: present
+    region: "{{ region }}"
+  register: eip
+
+- name: allocated ip is
+  debug:
+    msg: "{{ eip.public_ip }}"

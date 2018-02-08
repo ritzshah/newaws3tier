@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Create frontend instance
+    include_role:
+       name: aws
+       vars_from: frontend.yml
+
+  - name: Create apps instance
+    include_role:
+       name: aws
+       vars_from: apps.yml
+
+  - name: Create appdb instance
+    include_role:
+       name: aws
+       vars_from: appdb.yml
+

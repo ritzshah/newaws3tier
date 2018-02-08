@@ -1,0 +1,19 @@
+---
+- name: launching an instance
+  ec2:
+     key_name: key1
+     group_id: sg-da4a88b1
+     instance_type: t2.micro
+     image: ami-531a4c3c
+     wait: true
+     region: ap-south-1
+     count: 1
+     vpc_subnet_id: subnet-c9f951a1
+     assign_public_ip: no
+     instance_tags:
+          Name: "{{ instance_name }}"
+  register: instance
+
+- name: launched instance
+  debug: var=instance.instances
+

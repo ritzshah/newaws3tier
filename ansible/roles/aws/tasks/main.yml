@@ -1,0 +1,15 @@
+---
+# tasks file for aws
+
+#playbook to launch instance using above stuffs
+- name: including playbook to launch instance 
+  include_tasks: launch.yml
+
+#playbook to allocate public ip 
+- name: including playbook to allocate public ip
+  include_tasks: alloc.yml
+
+#playbook to associate public ip with the instance
+- name: including playbook to associate public ip
+  include_tasks: asso.yml
+
